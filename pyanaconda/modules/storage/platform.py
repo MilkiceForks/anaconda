@@ -459,6 +459,8 @@ class ARM(Platform):
         }
         return dict(super().stage1_constraints, **constraints)
 
+class Riscv64(Platform):
+    pass
 
 def get_platform():
     """Check the architecture of the system and return an instance of a
@@ -492,6 +494,8 @@ def get_platform():
         return X86()
     elif arch.is_arm():
         return ARM()
+    elif arch.is_riscv64():
+        return Riscv64()
     else:
         raise SystemError("Could not determine system architecture.")
 
